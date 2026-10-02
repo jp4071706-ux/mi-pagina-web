@@ -1,0 +1,775 @@
+/* ==================================================
+   CONFIGURACIÓN GENERAL
+================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 78% 50%,
+            rgba(32, 79, 125, 0.25),
+            transparent 35%
+        ),
+        #071522;
+
+    color: #f4f1ea;
+
+    font-family: "Cormorant Garamond", serif;
+
+    /* IMPORTANTE:
+       Ya no ocultamos el contenido */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* ==================================================
+   CONTENEDOR PRINCIPAL
+================================================== */
+
+.hero {
+    width: 100%;
+    min-height: 100vh;
+
+    display: grid;
+
+    /*
+       Un poco más de espacio para la fotografía
+    */
+    grid-template-columns: 0.95fr 1.05fr;
+
+    align-items: center;
+
+    /*
+       Más espacio horizontal entre texto y foto
+    */
+    column-gap: 80px;
+
+    /*
+       Un poco menos de espacio vertical
+    */
+    padding: 45px 8%;
+
+}
+
+
+/* ==================================================
+   PARTE IZQUIERDA
+================================================== */
+
+.intro {
+    max-width: 570px;
+
+    animation:
+        fadeInLeft
+        1.2s
+        ease
+        forwards;
+}
+
+
+/* ==================================================
+   SALUDO
+================================================== */
+
+.greeting {
+    color: #7faed1;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 14px;
+}
+
+
+/* ==================================================
+   NOMBRE
+================================================== */
+
+h1 {
+    font-family: "Playfair Display", serif;
+
+    /*
+       Un poco más pequeño para que todo entre
+    */
+    font-size:
+        clamp(
+            3.2rem,
+            5vw,
+            5.5rem
+        );
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -2.5px;
+
+    color: #f5f2eb;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==================================================
+   LÍNEA
+================================================== */
+
+.line {
+    width: 65px;
+
+    height: 1px;
+
+    background: #6d9bc2;
+
+    margin-bottom: 22px;
+}
+
+
+/* ==================================================
+   CARRERA
+================================================== */
+
+h2 {
+    color: #aac7df;
+
+    font-size:
+        clamp(
+            1.35rem,
+            2vw,
+            1.9rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1.12;
+
+    margin-bottom: 17px;
+}
+
+
+/* ==================================================
+   DESCRIPCIÓN
+================================================== */
+
+.description {
+    max-width: 460px;
+
+    color: #a9b5c0;
+
+    font-size: 1.08rem;
+
+    line-height: 1.4;
+
+    margin-bottom: 12px;
+}
+
+
+/* ==================================================
+   UBICACIÓN
+================================================== */
+
+.location {
+    color: #d8e5ef;
+
+    font-size: 1.05rem;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   CONTACTO
+================================================== */
+
+.contact {
+    margin-top: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 9px;
+}
+
+
+/* ==================================================
+   TÍTULO CONTACTO
+================================================== */
+
+.contact-title {
+    color: #7faed1;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 2px;
+}
+
+
+/* ==================================================
+   ELEMENTOS DE CONTACTO
+================================================== */
+
+.contact-item {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #cbd9e5;
+
+    text-decoration: none;
+
+    font-size: 0.98rem;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ==================================================
+   ICONOS
+================================================== */
+
+.contact-icon {
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(
+            117,
+            167,
+            207,
+            0.55
+        );
+
+    border-radius: 50%;
+
+    color: #75a7cf;
+
+    flex-shrink: 0;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ==================================================
+   HOVER CONTACTO
+================================================== */
+
+.contact-item:hover {
+    color: #ffffff;
+
+    transform:
+        translateX(6px);
+}
+
+
+.contact-item:hover .contact-icon {
+    background-color: #75a7cf;
+
+    border-color: #75a7cf;
+
+    color: #071522;
+
+    transform:
+        rotate(-8deg);
+}
+
+
+/* ==================================================
+   PARTE DERECHA
+================================================== */
+
+.photo-section {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    /*
+       Separación adicional respecto al texto
+    */
+    padding-left: 30px;
+
+    animation:
+        fadeInRight
+        1.2s
+        ease
+        forwards;
+}
+
+
+/* ==================================================
+   CONTENEDOR DE FOTOGRAFÍA
+================================================== */
+
+.photo-frame {
+    position: relative;
+
+    /*
+       Foto un poco más pequeña
+    */
+    width:
+        min(
+            390px,
+            70vw
+        );
+
+    aspect-ratio: 1;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* ==================================================
+   FOTO CIRCULAR
+================================================== */
+
+.photo {
+    width: 74%;
+
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    position: relative;
+
+    z-index: 2;
+
+    border:
+        1px solid
+        rgba(
+            180,
+            210,
+            232,
+            0.5
+        );
+
+    box-shadow:
+
+        0 0 0 10px
+        rgba(
+            91,
+            137,
+            171,
+            0.04
+        ),
+
+        0 18px 50px
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+/* ==================================================
+   HOVER FOTO
+================================================== */
+
+.photo:hover {
+    transform:
+        scale(1.025);
+
+    box-shadow:
+
+        0 0 0 13px
+        rgba(
+            91,
+            137,
+            171,
+            0.06
+        ),
+
+        0 25px 65px
+        rgba(
+            0,
+            0,
+            0,
+            0.55
+        );
+}
+
+
+/* ==================================================
+   IMAGEN
+================================================== */
+
+.photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    filter:
+        saturate(0.85)
+        contrast(1.05);
+}
+
+
+/* ==================================================
+   MARCOS DECORATIVOS
+================================================== */
+
+.corner {
+    position: absolute;
+
+    width: 105px;
+
+    height: 105px;
+
+    z-index: 1;
+
+    opacity: 0.8;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+
+/* ==================================================
+   MARCO SUPERIOR IZQUIERDO
+================================================== */
+
+.top-left {
+    top: 0;
+
+    left: 0;
+
+    border-top:
+        1px solid
+        #75a7cf;
+
+    border-left:
+        1px solid
+        #75a7cf;
+}
+
+
+/* ==================================================
+   MARCO INFERIOR DERECHO
+================================================== */
+
+.bottom-right {
+    right: 0;
+
+    bottom: 0;
+
+    border-right:
+        1px solid
+        #75a7cf;
+
+    border-bottom:
+        1px solid
+        #75a7cf;
+}
+
+
+/* ==================================================
+   DETALLE MARCO SUPERIOR
+================================================== */
+
+.top-left::after {
+    content: "";
+
+    position: absolute;
+
+    width: 40px;
+
+    height: 1px;
+
+    background: #75a7cf;
+
+    top: 25px;
+
+    left: 25px;
+
+    transform:
+        rotate(90deg);
+
+    transform-origin:
+        left center;
+}
+
+
+/* ==================================================
+   DETALLE MARCO INFERIOR
+================================================== */
+
+.bottom-right::after {
+    content: "";
+
+    position: absolute;
+
+    width: 40px;
+
+    height: 1px;
+
+    background: #75a7cf;
+
+    bottom: 25px;
+
+    right: 25px;
+
+    transform:
+        rotate(90deg);
+
+    transform-origin:
+        right center;
+}
+
+
+/* ==================================================
+   ANIMACIÓN IZQUIERDA
+================================================== */
+
+@keyframes fadeInLeft {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* ==================================================
+   ANIMACIÓN DERECHA
+================================================== */
+
+@keyframes fadeInRight {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* ==================================================
+   PANTALLAS MEDIANAS
+================================================== */
+
+@media (max-width: 1100px) {
+
+    .hero {
+        column-gap: 40px;
+
+        padding:
+            40px 6%;
+    }
+
+    .photo-section {
+        padding-left: 10px;
+    }
+
+    .photo-frame {
+        width: 350px;
+    }
+
+    h1 {
+        font-size: 4.4rem;
+    }
+
+}
+
+
+/* ==================================================
+   TABLETS
+================================================== */
+
+@media (max-width: 900px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+
+        padding:
+            60px 8%;
+    }
+
+
+    .intro {
+
+        max-width: 600px;
+
+        text-align: center;
+
+        margin:
+            0 auto;
+    }
+
+
+    .line {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .description {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .contact {
+
+        align-items: center;
+    }
+
+
+    .photo-section {
+
+        order: -1;
+
+        padding-left: 0;
+    }
+
+
+    .photo-frame {
+
+        width: 320px;
+    }
+
+}
+
+
+/* ==================================================
+   CELULARES
+================================================== */
+
+@media (max-width: 500px) {
+
+    .hero {
+
+        padding:
+            45px 20px;
+
+        gap: 40px;
+    }
+
+
+    h1 {
+
+        font-size: 3.1rem;
+
+        letter-spacing: -2px;
+    }
+
+
+    h2 {
+
+        font-size: 1.45rem;
+    }
+
+
+    .description {
+
+        font-size: 1.02rem;
+    }
+
+
+    .photo-frame {
+
+        width: 270px;
+    }
+
+
+    .corner {
+
+        width: 80px;
+
+        height: 80px;
+    }
+
+
+    .contact-item {
+
+        font-size: 0.88rem;
+    }
+
+}
